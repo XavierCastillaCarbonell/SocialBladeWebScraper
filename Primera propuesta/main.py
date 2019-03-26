@@ -14,7 +14,10 @@ def write(destinationDir, outputFileName, elementList):
 	with open(filePath, 'w', newline='') as csvFile:
 		writer = csv.writer(csvFile)
 		for element in elementList:
-			writer.writerow(element)
+			try:
+				writer.writerow(element)
+			except:
+  				print("An exception occurred")
 
 destinationDir = "output" #name of the output directory
 
