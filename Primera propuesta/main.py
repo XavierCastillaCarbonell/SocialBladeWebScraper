@@ -28,13 +28,13 @@ write(destinationDir, commonScraper.outputFileName, commonScraper.scrape())
 
 
 #Scrapers for each page
-from youtubeScraper import YoutubeScraper
-from twitchScraper import TwitchScraper
-from twitterScraper import TwitterScraper
-from instagramScraper import InstagramScraper
-from facebookScraper import FacebookScraper
-from dailymotionScraper import DailymotionScraper
-from mixerScraper import MixerScraper
+from socialScrapers.youtubeScraper import YoutubeScraper
+from socialScrapers.twitchScraper import TwitchScraper
+from socialScrapers.twitterScraper import TwitterScraper
+from socialScrapers.instagramScraper import InstagramScraper
+from socialScrapers.facebookScraper import FacebookScraper
+from socialScrapers.dailymotionScraper import DailymotionScraper
+from socialScrapers.mixerScraper import MixerScraper
 
 
 youtubeScraper = YoutubeScraper()
