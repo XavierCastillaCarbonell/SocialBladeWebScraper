@@ -10,7 +10,7 @@ $ py prac1.py
 
 ## Salida
 
-Se generarña si no existe la carpeta output con los ficheros .csv de cada plataforma más uno adicional con los datos comunes.
+Se generará si no existe la carpeta output con los ficheros .csv de cada plataforma más uno adicional con los datos comunes.
 
 ## Ficheros
 
