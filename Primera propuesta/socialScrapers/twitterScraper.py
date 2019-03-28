@@ -8,6 +8,7 @@ class TwitterScraper(object):
 		self.url = 'https://socialblade.com/twitter/'
 		self.outputFileName = "twitter.csv"
 
+	# Funcion que tiene como objetivo extraer los datos de la pagina
 	def scrape(self):
 		response = requests.get(self.url)
 		soup = BeautifulSoup(response.content,'html.parser')

@@ -8,6 +8,7 @@ class CommonScraper(object):
 		self.url = 'https://socialblade.com'
 		self.outputFileName = "common.csv"
 
+	#Como cada una de las paginas tiene en una ubicación distinta la columna de subscriptores es necesario un extractor concreto para cada una de ellas
 	def _getFollowersByPlatform(self, link, content):
 		if link == '/youtube':
 			return content.find("div", attrs={'class':'table-cell section-lg'}).find_next_sibling().get_text()
@@ -26,6 +27,7 @@ class CommonScraper(object):
 		else: 
 			return "ERROR: Platform not suported: " + link
 
+	# Funcion que tiene como objetivo extraer los datos de la pagina
 	def scrape(self):
 		elementList=[]
 		response = requests.get(self.url)
