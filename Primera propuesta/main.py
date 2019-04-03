@@ -1,6 +1,7 @@
 #set up
 import os
 import csv
+import time
 
 os.system('start /wait cmd /c ' + 'pip install ' + 'requests')
 os.system('start /wait cmd /c ' + 'pip install ' + 'beautifulsoup4')
@@ -49,9 +50,15 @@ dailymotionScraper = DailymotionScraper()
 mixerScraper = MixerScraper()
 
 write(destinationDir, youtubeScraper.outputFileName, youtubeScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, twitchScraper.outputFileName, twitchScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, twitterScraper.outputFileName, twitterScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, instagramScraper.outputFileName, instagramScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, facebookScraper.outputFileName, facebookScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, dailymotionScraper.outputFileName, dailymotionScraper.scrape())
+time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 write(destinationDir, mixerScraper.outputFileName, mixerScraper.scrape())

@@ -35,6 +35,7 @@ class CommonScraper(object):
 		contentCharts = soup.find("div", attrs={'id':'top-menu-content-charts'})
 
 		for elem in contentCharts.find_all("a"):
+			time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 			link = elem.get('href')
 			newResponse = requests.get(self.url+link)
 			newSoup = BeautifulSoup(newResponse.content,'html.parser')
