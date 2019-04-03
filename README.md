@@ -6,28 +6,32 @@ Con el objetivo de practicar como crear un web scraper decidimos hacer la parte 
 
 Dentro de los directorios "Primera Propuesta" y "Segunda Propuesta" hay un fichero README.md con los detalles
 
-##1. Contexto. Explicar en qué contexto se ha recolectado la información. Explique por qué el sitio web elegido proporciona dicha información.
+
+
+## 1. Contexto. Explicar en qué contexto se ha recolectado la información. Explique por qué el sitio web elegido proporciona dicha información.
 
 Las redes sociales juegan cada vez más un papel más importante en nuestras vidas y con ellas se han creado figuras muy influyentes que son vistas por miles sino millones de personas. Estos “influencers” tienen la capacidad de generar tendencias y corrientes de opinión dada su alta visibilidad. En este contexto es interesante conocer cuales son las figuras más influyentes de cada una de las redes sociales más populares del momento.
 
 SocialBlade nos presenta que plataformas sociales son más influyentes en el momento (con mayor afluencia de visitas) y nos presenta en una tabla por cada plataforma con los datos de los usuarios con mayor seguimiento.
 
-##2. Definir un título para el dataset. Elegir un título que sea descriptivo. 
+
+## 2. Definir un título para el dataset. Elegir un título que sea descriptivo. 
 
 Generamos ocho datasets, uno para cada plataforma y otro que contenga la información que tienen en común todas las plataformas, para los primeros casos el nombre es TopInfluencers{$nombreplataforma}.csv, para el caso de datos en común será TopInfluencers.csv.
 
-##3. Descripción del dataset. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).
+
+## 3. Descripción del dataset. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).
 
 TopInfluencers{$nombreplataforma}.csv contiene los datos de los usuarios más influyentes de una de las plataformas, los nombres de las variables de estos datos están ligados a las nomenclaturas de cada plataforma.
 
 TopInfluencers.csv contiene los datos de los usuarios de todas las plataformas sociales y las variables son las comunes entre todas las plataformas. 
 
-##4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
+
+## 4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
 
 
 
-##5. Contenido. Explicar los campos que incluye el dataset, el periodo de tiempo de
-los datos y cómo se ha recogido.
+## 5. Contenido. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.
 
 Para la propuesta escogida se generan varios datasets con sus ficheros csv correspondientes: uno por cada plataforma que es procesada más uno que contiene los datos comunes a todas ellas; aunque todos comparten una estructura parecida algunos presentan algunas particularidades, por lo que vamos a detallarlos uno a uno. De cara a facilitar la explicación de los campos que son compartidos y los que no, se van a presentar primero los campos para, a continuación, explicar el significado de cada uno de ellos.
 
@@ -66,16 +70,12 @@ Según indica la página SocialBlade las estadísticas las actualizan una vez al
 La forma de recogerlos es mediante un conjunto de programas sencillos y específicos que son ejecutados a través de un programa principal. Cada uno de estos programas se encargan de contactar con la página web de una de las plataforma y procesar los datos contenidos en ella, para luego volcarlos en un fichero csv. Aparte, se realiza una nueva llamada sobre todas las webs de las plataformas para obtener aquellos datos que son parte del fichero común, ya que son de columnas que comparten todas las platformas.
 
 
-
-##6. Agradecimientos. Presentar al propietario del conjunto de datos. Es necesario
-incluir citas de investigación o análisis anteriores (si los hay).
+## 6. Agradecimientos. Presentar al propietario del conjunto de datos. Es necesario incluir citas de investigación o análisis anteriores (si los hay).
 
 SocialBlade es un website que, haciendo uso de las diferentes herramientas proporcionadas por diferentes plataformas/redes sociales a través de API’s, etc. y mediante el correspondiente acuerdo legal con las mismas y aceptación de sus condiciones y términos de uso, proporciona un valor añadido a estos datos mediante su organización y elaboración de estadísticas de interés basados en dichos datos. Por tanto los datos mostrados son propiedad de SocialBlade, al ser resultado de un procesamiento y manipulación única por su parte en la que a los datos originales se les proporciona un valor añadido.
 
 
-
-##7. Inspiración. Explique por qué es interesante este conjunto de datos y qué
-preguntas se pretenden responder.
+## 7. Inspiración. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder.
 
 Se han tenido en cuenta dos aspectos principales para llevar a cabo un proyecto de webscraping sobre este site:
 -	Los datos obtenidos resultado del proceso son de interés.
@@ -86,11 +86,7 @@ Las páginas específicas que se han procesado presentan en abierto unos datos d
 Relacionado con ello tenemos también el hecho de que estos datos solo son interesantes si se encuentran actualizados, y por tanto es fundamental que los procesos se ejecuten con la frecuencia adecuada, sin por supuesto sobrecargar los servidores, para garantizar que los datos proporcionados sean útiles de cara a un propósito  determinado.
 
 
-
-
-
-##8. Licencia. Seleccione una de estas licencias para su dataset y explique el
-motivo de su selección:
+## 8. Licencia. Seleccione una de estas licencias para su dataset y explique el motivo de su selección:
 
 Como se ha explicado previamente, SocialBlade procesa datos proporcionados por un conjunto plataformas para mostrar estadísticas y datos relacionados de interés. Este site proporciona un acceso premium de pago donde se aportan más estadísticas de valor para el usuario.
 
