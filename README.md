@@ -17,14 +17,14 @@ SocialBlade nos presenta que plataformas sociales son más influyentes en el mom
 
 ## 2. Definir un título para el dataset. Elegir un título que sea descriptivo. 
 
-Generamos ocho datasets, uno para cada plataforma y otro que contenga la información que tienen en común todas las plataformas, para los primeros casos el nombre es TopInfluencers{$nombreplataforma}.csv, para el caso de datos en común será TopInfluencers.csv.
+Generamos ocho datasets, uno para cada plataforma y otro que contenga la información que tienen en común todas las plataformas, para los primeros casos el nombre es __TopInfluencers{_$nombreplataforma_}.csv__, para el caso de datos en común será __TopInfluencers.csv__.
 
 
 ## 3. Descripción del dataset. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).
 
-TopInfluencers{$nombreplataforma}.csv contiene los datos de los usuarios más influyentes de una de las plataformas, los nombres de las variables de estos datos están ligados a las nomenclaturas de cada plataforma.
+__TopInfluencers{_$nombreplataforma_}.csv__ contiene los datos de los usuarios más influyentes de una de las plataformas, los nombres de las variables de estos datos están ligados a las nomenclaturas de cada plataforma.
 
-TopInfluencers.csv contiene los datos de los usuarios de todas las plataformas sociales y las variables son las comunes entre todas las plataformas. 
+__TopInfluencers.csv__ contiene los datos de los usuarios de todas las plataformas sociales y las variables son las comunes entre todas las plataformas. 
 
 
 ## 4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
