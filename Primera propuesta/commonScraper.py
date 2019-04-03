@@ -1,5 +1,6 @@
 # Import libraries
 import requests
+import time
 from bs4 import BeautifulSoup
 
 class CommonScraper(object):
@@ -28,16 +29,16 @@ class CommonScraper(object):
 			return "ERROR: Platform not suported: " + link
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
-	def scrape(self):
+	def scrape(self, headers):
 		elementList = [["Rank", "Grade", "Name", "Followers"]]
-		response = requests.get(self.url)
+		response = requests.get(self.url, headers = headers)
 		soup = BeautifulSoup(response.content,'html.parser')
 		contentCharts = soup.find("div", attrs={'id':'top-menu-content-charts'})
 
 		for elem in contentCharts.find_all("a"):
 			time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 			link = elem.get('href')
-			newResponse = requests.get(self.url+link)
+			newResponse = requests.get(self.url+link, headers = headers)
 			newSoup = BeautifulSoup(newResponse.content,'html.parser')
 			container = newSoup.find("div", attrs={'class':'section-full-width'})
 

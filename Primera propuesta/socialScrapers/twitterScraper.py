@@ -9,8 +9,8 @@ class TwitterScraper(object):
 		self.outputFileName = "TopInfluencersTwitter.csv"
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
-	def scrape(self):
-		response = requests.get(self.url)
+	def scrape(self, headers):
+		response = requests.get(self.url, headers = headers)
 		soup = BeautifulSoup(response.content,'html.parser')
 		container = soup.find("div", attrs={'class':'section-full-width'})
 		elementList = [["Rank", "Grade", "User name", "Display name", "Tweets", "Followers", "Following"]]
