@@ -6,7 +6,7 @@ class CommonScraper(object):
 	"""docstring for YoutubeScrapper"""
 	def __init__(self):
 		self.url = 'https://socialblade.com'
-		self.outputFileName = "common.csv"
+		self.outputFileName = "TopInfluencers.csv"
 
 	#Como cada una de las paginas tiene en una ubicación distinta la columna de subscriptores es necesario un extractor concreto para cada una de ellas
 	def _getFollowersByPlatform(self, link, content):
@@ -29,7 +29,7 @@ class CommonScraper(object):
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
 	def scrape(self):
-		elementList=[]
+		elementList = [["Rank", "Grade", "Name", "Followers"]]
 		response = requests.get(self.url)
 		soup = BeautifulSoup(response.content,'html.parser')
 		contentCharts = soup.find("div", attrs={'id':'top-menu-content-charts'})

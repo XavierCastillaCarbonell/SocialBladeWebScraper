@@ -6,14 +6,14 @@ class InstagramScraper(object):
 	"""docstring for YoutubeScrapper"""
 	def __init__(self):
 		self.url = 'https://socialblade.com/instagram/'
-		self.outputFileName = "instagram.csv"
+		self.outputFileName = "TopInfluencersInstagram.csv"
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
 	def scrape(self):
 		response = requests.get(self.url)
 		soup = BeautifulSoup(response.content,'html.parser')
 		container = soup.find("div", attrs={'class':'section-full-width'})
-		elementList=[]
+		elementList = [["Rank", "Grade", "User name", "Display name", "Media", "Followers", "Following"]]
 
 		for content in container.find_all("div", attrs={'class':'table-body'}):
 			rank = content.find("div", attrs={'class':'section-rank'})

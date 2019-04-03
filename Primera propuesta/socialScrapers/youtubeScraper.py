@@ -6,14 +6,14 @@ class YoutubeScraper(object):
 	"""docstring for YoutubeScrapper"""
 	def __init__(self):
 		self.url = 'https://socialblade.com/youtube/'
-		self.outputFileName = "youtube.csv"
+		self.outputFileName = "TopInfluencersYoutube.csv"
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
 	def scrape(self):
 		response = requests.get(self.url)
 		soup = BeautifulSoup(response.content,'html.parser')
 		container = soup.find("div", attrs={'class':'section-full-width'})
-		elementList=[]
+		elementList = [["Rank", "Grade", "Display name", "Videos", "Subscribers", "Views"]]
 
 		for content in container.find_all("div", attrs={'class':'table-body'}):
 			rank = content.find("div", attrs={'class':'section-rank'})
