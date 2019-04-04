@@ -29,7 +29,7 @@ __TopInfluencers.csv__ contiene los datos de los usuarios de todas las plataform
 
 ## 4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
 
-A continuación mostramos la representación gráfica del dataset escogido. El formato utilizado para ello es una tabla, ya que de esta manera se puede ver fácilmente para cada una de las plataformas cuyos datos son procesados, los atributos que tienen asociados. De igual manera podemos ver qué dónde aparecen cada uno de los atributos.
+A continuación mostramos la representación gráfica del dataset escogido. El formato utilizado para ello es una tabla, ya que de esta manera se puede ver fácilmente para cada una de las plataformas cuyos datos son procesados, los atributos que tienen asociados. De igual manera podemos ver dónde aparecen cada uno de los atributos.
 
 ![alt text](https://github.com/XavierCastillaCarbonell/SocialBladeWebScraper/blob/master/imagePunto4Final.png)
 
