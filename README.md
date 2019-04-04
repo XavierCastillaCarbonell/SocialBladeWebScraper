@@ -30,6 +30,8 @@ __TopInfluencers.csv__ contiene los datos de los usuarios de todas las plataform
 ## 4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
 
 
+![alt text](https://github.com/XavierCastillaCarbonell/SocialBladeWebScraper/imagePunto4Final.png)
+
 
 ## 5. Contenido. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.
 
