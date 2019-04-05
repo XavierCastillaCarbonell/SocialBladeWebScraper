@@ -2,6 +2,7 @@
 import os
 import csv
 import time
+import requests
 from random import choice
 
 os.system('start /wait cmd /c ' + 'pip install ' + 'requests')
@@ -38,13 +39,9 @@ user_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l
 headers = {'User-Agent': choice(user_agents)}
 
 #Scraper for common information
-
 from commonScraper import CommonScraper
 
-commonScraper = CommonScraper()
-
-write(destinationDir, commonScraper.outputFileName, commonScraper.scrape(headers))
-
+commonScraper = CommonScraper(url = 'https://socialblade.com', outputFileName = "TopInfluencers.csv")
 
 #Scrapers for each page
 from socialScrapers.youtubeScraper import YoutubeScraper
@@ -55,7 +52,6 @@ from socialScrapers.facebookScraper import FacebookScraper
 from socialScrapers.dailymotionScraper import DailymotionScraper
 from socialScrapers.mixerScraper import MixerScraper
 
-
 youtubeScraper = YoutubeScraper()
 twitchScraper = TwitchScraper()
 twitterScraper = TwitterScraper()
@@ -64,16 +60,66 @@ facebookScraper = FacebookScraper()
 dailymotionScraper = DailymotionScraper()
 mixerScraper = MixerScraper()
 
-write(destinationDir, youtubeScraper.outputFileName, youtubeScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, twitchScraper.outputFileName, twitchScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, twitterScraper.outputFileName, twitterScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, instagramScraper.outputFileName, instagramScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, facebookScraper.outputFileName, facebookScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, dailymotionScraper.outputFileName, dailymotionScraper.scrape(headers))
-time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
-write(destinationDir, mixerScraper.outputFileName, mixerScraper.scrape(headers))
+url = 'https://socialblade.com/robots.txt'
+
+while True:
+    print("bla bla bla")
+    lines = requests.get(url).text.splitlines()
+
+    for line in lines:
+        if 'Disallow:' in line:
+            line = line[10:]
+            if line == "/youtube":
+                youtubeScraper.disallow()
+                print('Youtube no se debe procesar')
+            elif line == "/twitch":
+                twitchScraper.disallow()
+                print('Twitch no se debe procesar')
+            elif line == "/twitter":
+                twitterScraper.disallow()
+                print('Twitter no se debe procesar')
+            elif line == "/instagram":
+                instagramScraper.disallow()
+                print('Instagram no se debe procesar')
+            elif line == "/dailymotion":
+                dailymotionScraper.disallow()
+                print('Dailymotion no se debe procesar')
+            elif line == "/mixer":
+                mixerScraper.disallow()
+                print('Mixer no se debe procesar')
+            elif line == "/facebook":
+                facebookScraper.disallow()
+                print('Facebook no se debe procesar')
+
+    write(destinationDir, commonScraper.outputFileName, commonScraper.scrape(headers)) # commonScraper ya tiene sleep() internos
+
+    write(destinationDir, youtubeScraper.outputFileName, youtubeScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, twitchScraper.outputFileName, twitchScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, twitterScraper.outputFileName, twitterScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, instagramScraper.outputFileName, instagramScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, facebookScraper.outputFileName, facebookScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, dailymotionScraper.outputFileName, dailymotionScraper.scrape(headers))
+    time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
+
+    write(destinationDir, mixerScraper.outputFileName, mixerScraper.scrape(headers))
+
+    # Volvemos a activar todos los scrapers en caso de que los permisos del robots.txt cambien en un futuro
+    youtubeScraper.allow()
+    twitchScraper.allow()
+    twitterScraper.allow()
+    instagramScraper.allow()
+    facebookScraper.allow()
+    dailymotionScraper.allow()
+    mixerScraper.allow()
+
+    time.sleep(10) # Esperamos una hora para hacer la siguiente iteración de scrape
