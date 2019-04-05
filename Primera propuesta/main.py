@@ -122,4 +122,4 @@ while True:
     dailymotionScraper.allow()
     mixerScraper.allow()
 
-    time.sleep(10) # Esperamos una hora para hacer la siguiente iteración de scrape
+    time.sleep(3600) # Esperamos una hora para hacer la siguiente iteración de scrape
