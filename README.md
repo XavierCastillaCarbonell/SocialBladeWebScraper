@@ -29,6 +29,9 @@ __TopInfluencers.csv__ contiene los datos de los usuarios de todas las plataform
 
 ## 4. Representación gráfica. Presentar una imagen o esquema que identifique el dataset visualmente.
 
+A continuación mostramos la representación gráfica del dataset escogido. El formato utilizado para ello es una tabla, ya que de esta manera se puede ver fácilmente para cada una de las plataformas cuyos datos son procesados, los atributos que tienen asociados. De igual manera podemos ver dónde aparecen cada uno de los atributos.
+
+![alt text](https://github.com/XavierCastillaCarbonell/SocialBladeWebScraper/blob/master/imagePunto4Final.png)
 
 
 ## 5. Contenido. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.
@@ -37,21 +40,21 @@ Para la propuesta escogida se generan varios datasets con sus ficheros csv corre
 
 
 
-common.csv: Rank, Grade, Name, Followers/Suscribers
+TopInfluencers.csv: Rank, Grade, Name, Followers/Suscribers
 
-youtube.csv: Rank, Grade, Display name, Videos, Subscribers, Views
+TopInfluencersYoutube.csv: Rank, Grade, Display name, Videos, Subscribers, Views
 
-twitchtv.csv: Rank, Grade, User name, Last game, Views, Followers
+TopInfluencersTwitchtv.csv: Rank, Grade, User name, Last game, Views, Followers
 
-twitter.csv: Rank, Grade, User name, Display name, Tweets, Followers, Following
+TopInfluencersTwitter.csv: Rank, Grade, User name, Display name, Tweets, Followers, Following
 
-instagram.csv: Rank, Grade, User name, Display name, Media, Followers, Following
+TopInfluencersInstagram.csv: Rank, Grade, User name, Display name, Media, Followers, Following
 
-facebook.csv: Rank, Grade, User name, Category, Likes, Talking about
+TopInfluencersFacebook.csv: Rank, Grade, User name, Category, Likes, Talking about
 
-dailymotion.csv: Rank, Grade, User name, Display name, Media, Followers, Vidviews
+TopInfluencersDailymotion.csv: Rank, Grade, User name, Display name, Media, Followers, Vidviews
 
-mixer.csv: Rank, Grade, User name, Followers, Channel views, Level, Latest game
+TopInfluencersMixer.csv: Rank, Grade, User name, Followers, Channel views, Level, Latest game
 
 
 
