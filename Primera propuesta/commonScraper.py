@@ -5,9 +5,10 @@ from bs4 import BeautifulSoup
 
 class CommonScraper(object):
 	"""docstring for YoutubeScrapper"""
-	def __init__(self):
-		self.url = 'https://socialblade.com'
-		self.outputFileName = "TopInfluencers.csv"
+	def __init__(self, url, outputFileName):
+		self.url = url
+		self.outputFileName = outputFileName
+		self.allowed = True
 
 	#Como cada una de las paginas tiene en una ubicación distinta la columna de subscriptores es necesario un extractor concreto para cada una de ellas
 	def _getFollowersByPlatform(self, link, content):
@@ -52,3 +53,12 @@ class CommonScraper(object):
 				elementList.append(row)
 		
 		return elementList
+
+	# Modificacmos la variable allow para permitir hacer scrape de las paginas concretas
+	def allow(self):
+		self.allowed = True
+
+	# Modificacmos la variable allow para negar hacer scrape de las paginas concretas
+	def disallow(self):
+		self.allowed = False
+
