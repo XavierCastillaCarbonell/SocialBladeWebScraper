@@ -2,6 +2,8 @@
 
 ### Realizado por: Ana Blanes y Xavier Castilla
 
+Dentro la carpeta code hay un README con los detalles de los ficheros y el código de la práctica.
+
 ## 1. Contexto. Explicar en qué contexto se ha recolectado la información. Explique por qué el sitio web elegido proporciona dicha información.
 
 Las redes sociales juegan cada vez más un papel más importante en nuestras vidas y con ellas se han creado figuras muy influyentes que son vistas por miles sino millones de personas. Estos “influencers” tienen la capacidad de generar tendencias y corrientes de opinión dada su alta visibilidad. En este contexto es interesante conocer cuales son las figuras más influyentes de cada una de las redes sociales más populares del momento.
