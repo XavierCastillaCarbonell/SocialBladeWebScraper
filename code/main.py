@@ -64,38 +64,38 @@ url = 'https://socialblade.com/robots.txt'
 
 while True:
     lines = requests.get(url).text.splitlines()
-    disallows = List[]
+    disallows = []
 
     for line in lines:
-        if 'Disallow:' in line:
+    	if 'Disallow:' in line:
             line = line[10:]
-            if line == "/youtube":
+            if line == "/youtube" or line == "/youtube/*":
                 youtubeScraper.disallow()
-                disallow.append('youtube')
+                disallows.append('/youtube')
                 print('Youtube no se debe procesar')
-            elif line == "/twitch":
+            elif line == "/twitch" or line == "/twitch/*":
                 twitchScraper.disallow()
-                disallow.append('twitch')
+                disallows.append('/twitch')
                 print('Twitch no se debe procesar')
-            elif line == "/twitter":
+            elif line == "/twitter" or line == "/twitter/*":
                 twitterScraper.disallow()
-                disallow.append('twitter')
+                disallows.append('/twitter')
                 print('Twitter no se debe procesar')
-            elif line == "/instagram":
+            elif line == "/instagram" or line == "/instagram/*":
                 instagramScraper.disallow()
-                disallow.append('instagram')
+                disallows.append('/instagram')
                 print('Instagram no se debe procesar')
-            elif line == "/dailymotion":
+            elif line == "/dailymotion" or line == "/dailymotion/*":
                 dailymotionScraper.disallow()
-                disallow.append('dailymotion')
+                disallows.append('/dailymotion')
                 print('Dailymotion no se debe procesar')
-            elif line == "/mixer":
+            elif line == "/mixer" or line == "/mixer/*":
                 mixerScraper.disallow()
-                disallow.append('mixer')
+                disallows.append('/mixer')
                 print('Mixer no se debe procesar')
-            elif line == "/facebook":
+            elif line == "/facebook" or line == "/facebook/*":
                 facebookScraper.disallow()
-                disallow.append('facebook')
+                disallows.append('/facebook')
                 print('Facebook no se debe procesar')
 
     write(destinationDir, commonScraper.outputFileName, commonScraper.scrape(headers, disallows)) # commonScraper ya tiene sleep() internos

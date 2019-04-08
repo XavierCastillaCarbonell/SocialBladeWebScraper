@@ -11,8 +11,8 @@ class CommonScraper(object):
 		self.allowed = True
 
 	#Como cada una de las paginas tiene en una ubicación distinta la columna de subscriptores es necesario un extractor concreto para cada una de ellas
-	def _getFollowersByPlatform(self, link, content, disallows):
-		if link == '/youtube' && isAllowed(disallows, 'youtube'):
+	def _getFollowersByPlatform(self, link, content):
+		if link == '/youtube':
 			return content.find("div", attrs={'class':'table-cell section-lg'}).find_next_sibling().get_text()
 		elif link == '/twitch':
 			return content.find("div", attrs={'class':'table-cell section-lg'}).find_next_sibling().get_text()
@@ -30,7 +30,7 @@ class CommonScraper(object):
 			return "ERROR: Platform not suported: " + link
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
-	def scrape(self, headers, disallows):
+	def scrape(self, headers,disallows):
 		elementList = [["Rank", "Grade", "Name", "Followers"]]
 		response = requests.get(self.url, headers = headers)
 		soup = BeautifulSoup(response.content,'html.parser')
@@ -39,18 +39,19 @@ class CommonScraper(object):
 		for elem in contentCharts.find_all("a"):
 			time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
 			link = elem.get('href')
-			newResponse = requests.get(self.url+link, headers = headers)
-			newSoup = BeautifulSoup(newResponse.content,'html.parser')
-			container = newSoup.find("div", attrs={'class':'section-full-width'})
+			if not isDisallowed(disallows,link):
+				newResponse = requests.get(self.url+link, headers = headers)
+				newSoup = BeautifulSoup(newResponse.content,'html.parser')
+				container = newSoup.find("div", attrs={'class':'section-full-width'})
 
-			for content in container.find_all("div", attrs={'class':'table-body'}):
-				rank = content.find("div", attrs={'class':'section-rank'})
-				grade = rank.find_next_sibling()
-				name = grade.find_next_sibling()
-				followers = self._getFollowersByPlatform(link, content)
+				for content in container.find_all("div", attrs={'class':'table-body'}):
+					rank = content.find("div", attrs={'class':'section-rank'})
+					grade = rank.find_next_sibling()
+					name = grade.find_next_sibling()
+					followers = self._getFollowersByPlatform(link, content)
 
-				row = [rank.get_text(),grade.get_text(),name.get_text(),followers]
-				elementList.append(row)
+					row = [rank.get_text(),grade.get_text(),name.get_text(),followers]
+					elementList.append(row)
 		
 		return elementList
 
@@ -62,5 +63,10 @@ class CommonScraper(object):
 	def disallow(self):
 		self.allowed = False
 
-	def isAllowed(disallows, platform):
-		???
+# Comprobamos si un link está en el listado de disallowed
+def isDisallowed(disallows,link):
+	for disallow in disallows:
+		if link == disallow:
+			return True
+	return False
+
