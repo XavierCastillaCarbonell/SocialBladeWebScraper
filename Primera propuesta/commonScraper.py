@@ -11,8 +11,8 @@ class CommonScraper(object):
 		self.allowed = True
 
 	#Como cada una de las paginas tiene en una ubicación distinta la columna de subscriptores es necesario un extractor concreto para cada una de ellas
-	def _getFollowersByPlatform(self, link, content):
-		if link == '/youtube':
+	def _getFollowersByPlatform(self, link, content, disallows):
+		if link == '/youtube' && isAllowed(disallows, 'youtube'):
 			return content.find("div", attrs={'class':'table-cell section-lg'}).find_next_sibling().get_text()
 		elif link == '/twitch':
 			return content.find("div", attrs={'class':'table-cell section-lg'}).find_next_sibling().get_text()
@@ -30,7 +30,7 @@ class CommonScraper(object):
 			return "ERROR: Platform not suported: " + link
 
 	# Funcion que tiene como objetivo extraer los datos de la pagina
-	def scrape(self, headers):
+	def scrape(self, headers, disallows):
 		elementList = [["Rank", "Grade", "Name", "Followers"]]
 		response = requests.get(self.url, headers = headers)
 		soup = BeautifulSoup(response.content,'html.parser')
@@ -62,3 +62,5 @@ class CommonScraper(object):
 	def disallow(self):
 		self.allowed = False
 
+	def isAllowed(disallows, platform):
+		???

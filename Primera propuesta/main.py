@@ -63,35 +63,42 @@ mixerScraper = MixerScraper()
 url = 'https://socialblade.com/robots.txt'
 
 while True:
-    print("bla bla bla")
     lines = requests.get(url).text.splitlines()
+    disallows = List[]
 
     for line in lines:
         if 'Disallow:' in line:
             line = line[10:]
             if line == "/youtube":
                 youtubeScraper.disallow()
+                disallow.append('youtube')
                 print('Youtube no se debe procesar')
             elif line == "/twitch":
                 twitchScraper.disallow()
+                disallow.append('twitch')
                 print('Twitch no se debe procesar')
             elif line == "/twitter":
                 twitterScraper.disallow()
+                disallow.append('twitter')
                 print('Twitter no se debe procesar')
             elif line == "/instagram":
                 instagramScraper.disallow()
+                disallow.append('instagram')
                 print('Instagram no se debe procesar')
             elif line == "/dailymotion":
                 dailymotionScraper.disallow()
+                disallow.append('dailymotion')
                 print('Dailymotion no se debe procesar')
             elif line == "/mixer":
                 mixerScraper.disallow()
+                disallow.append('mixer')
                 print('Mixer no se debe procesar')
             elif line == "/facebook":
                 facebookScraper.disallow()
+                disallow.append('facebook')
                 print('Facebook no se debe procesar')
 
-    write(destinationDir, commonScraper.outputFileName, commonScraper.scrape(headers)) # commonScraper ya tiene sleep() internos
+    write(destinationDir, commonScraper.outputFileName, commonScraper.scrape(headers, disallows)) # commonScraper ya tiene sleep() internos
 
     write(destinationDir, youtubeScraper.outputFileName, youtubeScraper.scrape(headers))
     time.sleep(0.2) # Ponemos un tiempo de espera entre cada peticion para evitar saturar el servidor
