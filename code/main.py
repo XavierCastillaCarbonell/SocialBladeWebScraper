@@ -1,12 +1,13 @@
 #set up
 import os
-import csv
-import time
-import requests
-from random import choice
 
 os.system('start /wait cmd /c ' + 'pip install ' + 'requests')
 os.system('start /wait cmd /c ' + 'pip install ' + 'beautifulsoup4')
+
+import csv
+import time
+from random import choice
+import requests
 
 #Write Function
 def write(destinationDir, outputFileName, elementList):
@@ -65,6 +66,8 @@ url = 'https://socialblade.com/robots.txt'
 while True:
     lines = requests.get(url).text.splitlines()
     disallows = []
+    disallows.append('/youtube')
+    disallows.append('/twitch')
 
     for line in lines:
     	if 'Disallow:' in line:
