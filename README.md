@@ -1,5 +1,8 @@
 # SocialBladeWebScraper
 
+Por Xavier Castilla Carbonell y Ana Blanes Martínez.
+
+
 Para realizar la práctica hemos escogido la web https://socialblade.com/ que mantiene información actualizada de cada una de las plataformas sociales más usadas del momento. Elobjetivo es extraer la información común en un fichero .csv de los TOP 25 usuarios de cada una de las siguientes plataformas: Youtube, Twitch, Twitter, Instagram, Facebook, Dailymotion y Mixer. Además otro fichero por cada una de las plataformas con todo el detalle de los usuarios.
 
 
